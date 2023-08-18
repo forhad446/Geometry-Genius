@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Genius</title>
+    <!-- daisu & tailwind linked -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter font added -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .text-inter {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="text-inter max-w-7xl mx-auto mt-5">
+    <header>
+        <nav class="bg-[#1090D81A] flex justify-between items-center px-12 py-4">
+            <div>
+                <h1 class="text-[#111111CC] font-medium"><span class="text-4xl font-bold">Interactive</span>
+                    <br>Geometry Genius</h1>
+            </div>
+            <div>
+                <button class="btn bg-[#1090D8] text-white px-10 py-3">Blog</button>
+            </div>
+        </nav>
+    </header>
+    <main class="mt-12 flex justify-center">
+        <section class="flex justify-between flex-col lg:flex-row">
+            <div class="grid grid-cols md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 flex-1">
+                <!-- Triangle Card -->
+                <div class="card w-80 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="./images/triangle.png" alt="triangle.png" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">Triangle</h2>
+                        <p>Area (A) = 0.5 x b x h</p>
+                        <div class=" mt-5">
+                            <input class="bg-[#F1F1F1] w-[80px] px-3 font-medium rounded-md" type="text" name="" id="triangle-base"
+                                placeholder="b">
+                            <span class="mx-3">cm</span>
+                            <input class="bg-[#F1F1F1] w-[80px] px-3 font-medium rounded-md" type="text" name="" id="triangle-hight"
+                                placeholder="h">
+                            <span class="ml-2">cm</span>
+                        </div>
+                        <p class="mt-2 font-medium">Area : <span id="triangle_result">00</span></p>
+                        <div class="card-actions w-full mt-4">
+                            <button onclick="triangleWork()" class="btn bg-[#1090D8] text-white w-full">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rectangle card -->
+                <div class="card w-80 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="./images/rectangle.png" alt="Rectangle.png" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">Rectangle</h2>
+                        <p>Area (A) = w x I</p>
+                        <div class=" mt-2">
+                            <input class="bg-[#F1F1F1] w-[80px] px-3 font-medium rounded-md" type="text" name="" id="rectangle_width"
+                                placeholder="w">
+                            <span class="mx-3">cm</span>
+                            <input class="bg-[#F1F1F1] w-[80px] px-3 font-medium rounded-md" type="text" name="" id="rectangle_length"
+                                placeholder="L">
+                            <span class="ml-2">cm</span>
+                        </div>
+                        <p class="mt-2 font-medium">Area : <span id="rectangle_result">00</span></p>
+                        <div class="card-actions w-full mt-4">
+                            <button onclick="rectangleWork()" class="btn bg-[#1090D8] text-white w-full">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Parallelogram card -->
+                <div class="card w-80 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="./images/parallelogram.png" alt="Parallelogram.png" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">Parallelogram</h2>
+                        <p>Area (A) = b x h</p>
+                        <div class=" mt-5">
+                            <input class="bg-[#F1F1F1] w-[80px] px-3 font-medium rounded-md" type="text" name="" id="parallelogram_base"
+                                placeholder="b">
+                            <span class="mx-3">cm</span>
+                            <input class="bg-[#F1F1F1] w-[80px] px-3 font-medium rounded-md" type="text" name="" id="parallelogram_hight"
+                                placeholder="h">
+                            <span class="ml-2">cm</span>
+                        </div>
+                        <p class="mt-2 font-medium">Area : <span id="parallelogram_result">00</span></p>
+                        <div class="card-actions w-full mt-4">
+                            <button onclick="parallelogramWork()" class="btn bg-[#1090D8] text-white w-full">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rhombus Card -->
+                <div class="card w-80 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="./images/rhombus.png" alt="Rhombus.png" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">Rhombus</h2>
+                        <p>Area (A) = 0.5 x d<sub>1</sub> x d<sub>2</sub></p>
+                        <div class=" mt-5">
+                            <input class="bg-[#F1F1F1] w-[80px] px-3 font-medium rounded-md" type="text" name="" id="rhombus_d1"
+                                placeholder="d">
+                            <span class="mx-3">cm</span>
+                            <input class="bg-[#F1F1F1] w-[80px] px-3 font-medium rounded-md" type="text" name="" id="rhombus_d2"
+                                placeholder="d">
+                            <span class="ml-2">cm</span>
+                        </div>
+                        <p class="mt-2 font-medium">Area : <span id="rhombus_result">00</span></p>
+                        <div class="card-actions w-full mt-4">
+                            <button onclick="rhombusWork()" class="btn bg-[#1090D8] text-white w-full">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pentagon card -->
+                <div class="card w-80 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="./images/pentagon.png" alt="Pentagon.png" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">Pentagon</h2>
+                        <p>Area (A) = 0.5 x p x b</p>
+                        <div class=" mt-2">
+                            <input class="bg-[#F1F1F1] w-[80px] px-3 font-medium rounded-md" type="text" name="" id="pentagon_side"
+                                placeholder="S">
+                            <span class="mx-3">cm</span>
+                            <input class="bg-[#F1F1F1] w-[80px] px-3 font-medium rounded-md" type="text" name="" id="pentagon_length"
+                                placeholder="L">
+                            <span class="ml-2">cm</span>
+                        </div>
+                        <p class="mt-2 font-medium">Area : <span id="pentagon_result">00</span></p>
+                        <div class="card-actions w-full mt-4">
+                            <button onclick="pentagonWork()" class="btn bg-[#1090D8] text-white w-full">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Ellipse card -->
+                <div class="card w-80 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="./images/ellipse.png" alt="ellipse.png" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 id="Ellipse" class="card-title">Ellipse</h2>
+                        <p>Area (A) = πab</p>
+                        <div class=" mt-5">
+                            <input class="bg-[#F1F1F1] w-[80px] px-3 font-medium rounded-md" type="text" name="" id="ellipse_a"
+                                placeholder="a">
+                            <span class="mx-3">cm</span>
+                            <input class="bg-[#F1F1F1] w-[80px] px-3 font-medium rounded-md" type="text" name="" id="ellipse_b"
+                                placeholder="b">
+                            <span class="ml-2">cm</span>
+                        </div>
+                        <p class="mt-2 font-medium">Area : <span id="ellipse_result">00</span></p>
+                        <div class="card-actions w-full mt-4">
+                            <button onclick="ellipsework()" class="btn bg-[#1090D8] text-white w-full">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="history" class="w-72 ">
+                <h1 class="text-[#111111CC] font-bold text-lg underline text-center">Area Calculation</h1>
+                <div id="calculation_entry" class="text-center"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="./js/utilities.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
